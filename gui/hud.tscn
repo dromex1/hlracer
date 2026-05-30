@@ -12,12 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://df7tqlqhs1b7q" path="res://assets/sprites/keys/Keyboard_White_Arrow_Right.png" id="8_8hsjs"]
 [ext_resource type="Texture2D" uid="uid://ncy77crvg6mq" path="res://assets/sprites/keys/Keyboard_White_Space.png" id="9_trhhp"]
 [ext_resource type="Texture2D" uid="uid://cl01ktxeulb6q" path="res://assets/sprites/keys/Keyboard_White_Ctrl.png" id="10_xo7ub"]
-[ext_resource type="Texture2D" uid="uid://bvrw7jsakq7q7" path="res://hamulec.png" id="13_edtsn"]
-[ext_resource type="Texture2D" uid="uid://dtflmcqonnvsq" path="res://gaz.png" id="14_lrrok"]
-[ext_resource type="Texture2D" path="res://hamulec nie wcisniety.png" id="15_ham_norm"]
-[ext_resource type="Texture2D" path="res://hamulec wcisniety.png" id="16_ham_pres"]
-[ext_resource type="Texture2D" path="res://gaz nie wcisniety.png" id="17_gaz_norm"]
-[ext_resource type="Texture2D" path="res://gaz wcisniety.png" id="18_gaz_pres"]
+[ext_resource type="Texture2D" uid="uid://ccc51uqtj3ihc" path="res://hamulec nie wcisniety.png" id="15_ham_norm"]
+[ext_resource type="Texture2D" uid="uid://bsu5demtxlwc6" path="res://hamulec wcisniety.png" id="16_ham_pres"]
+[ext_resource type="Texture2D" uid="uid://ddjfkqt2tq5ay" path="res://gaz nie wcisniety.png" id="17_gaz_norm"]
+[ext_resource type="Texture2D" uid="uid://ko3aheuckp1l" path="res://gaz wcisniety.png" id="18_gaz_pres"]
 
 [sub_resource type="Gradient" id="Gradient_dsfed"]
 offsets = PackedFloat32Array(0.974874, 1)
@@ -213,7 +211,7 @@ layout_mode = 2
 texture = ExtResource("5_00pq3")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1742865485]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "PRZYSPIESZ"
@@ -228,7 +226,7 @@ layout_mode = 2
 texture = ExtResource("6_e1scy")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1331221025]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "HAMUJ/TYŁ"
@@ -243,7 +241,7 @@ layout_mode = 2
 texture = ExtResource("7_3k50y")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=68182988]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "POCHYL LEWO"
@@ -258,7 +256,7 @@ layout_mode = 2
 texture = ExtResource("8_8hsjs")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=1572583768]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "POCHYL PRAWO"
@@ -273,7 +271,7 @@ layout_mode = 2
 texture = ExtResource("9_trhhp")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer5"]
+[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1887010016]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "HAMULEC"
@@ -288,7 +286,7 @@ layout_mode = 2
 texture = ExtResource("10_xo7ub")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer6"]
+[node name="Label" type="Label" parent="HudMain/VBoxContainer/VBoxContainer/HBoxContainer6" unique_id=376782352]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "NITRO"

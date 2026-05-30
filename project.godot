@@ -17,11 +17,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Hill Racing 43"
 run/main_scene="res://gui/main.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-boot_splash/bg_color=Color(0.0, 0.0, 0.0, 1)
-boot_splash/image="res://boot logo.png"
-boot_splash/fullsize=true
-boot_splash/show_image=true
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/use_filter=false
+boot_splash/image="res://boot logo.png"
 config/icon="res://icon.png"
 
 [autoload]
@@ -120,4 +118,5 @@ locale/fallback="pl"
 [rendering]
 
 renderer/rendering_method.mobile="forward_plus"
+textures/vram_compression/import_etc2_astc=true
 viewport/hdr_2d=true
