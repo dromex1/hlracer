@@ -125,6 +125,12 @@ func _create_terrain_section(sec : int) -> void:
 	poly.z_index = 1
 	node_floor.add_child(poly)
 	
+	# Color modulation based on current level palette
+	var lvl_idx = clampi(Globals.current_level_index, 0, Globals.game_levels.size() - 1)
+	var lvl_data = Globals.game_levels[lvl_idx]
+	line.modulate = lvl_data.grass
+	poly.modulate = lvl_data.dirt
+	
 	if Engine.is_editor_hint():
 		return
 	

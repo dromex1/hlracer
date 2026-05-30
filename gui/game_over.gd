@@ -21,6 +21,10 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	if Globals.game_finished:
+		game_over_label.text = "POZIOM UKOŃCZONY!\n(+5000 MONET)"
+		game_over_label.modulate = Color(1.0, 0.8, 0.2)
+	
 	control_animate(game_over_label, 10, 0)
 	control_animate(distance_box, 3, 0.5)
 	control_animate(coins_box, 3, 0.6)

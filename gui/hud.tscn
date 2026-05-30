@@ -133,6 +133,36 @@ theme_override_constants/margin_bottom = 50
 [node name="VBoxContainer" type="VBoxContainer" parent="HudMain" unique_id=1130018720]
 layout_mode = 2
 
+[node name="LevelProgressBar" type="ProgressBar" parent="HudMain/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 12)
+max_value = 3500.0
+value = 0.0
+show_percentage = false
+theme_override_styles/fill = null
+
+[node name="LevelCompleteLabel" type="Label" parent="HudMain"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "POZIOM UKOŃCZONY!"
+label_settings = SubResource("LabelSettings_xkaka")
+horizontal_alignment = 1
+vertical_alignment = 1
+visible = false
+
 [node name="HBoxContainer" type="HBoxContainer" parent="HudMain/VBoxContainer" unique_id=509825799]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -297,7 +327,7 @@ vertical_alignment = 1
 libraries/ = SubResource("AnimationLibrary_6khr1")
 autoplay = &"new_animation"
 
-[node name="MobileControls" type="Control" parent="." unique_id=432939512]
+[node name="MobileControls" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -305,34 +335,78 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TurnLeft" type="TouchScreenButton" parent="MobileControls" unique_id=1752596924]
-position = Vector2(50, 480)
+[node name="TopRight" type="Control" parent="MobileControls"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 150.0
+grow_horizontal = 0
+
+[node name="PauseButton" type="Button" parent="MobileControls/TopRight"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 90.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 28
+text = "| |"
+
+[node name="BottomLeft" type="Control" parent="MobileControls"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 300.0
+grow_vertical = 0
+
+[node name="TurnLeft" type="TouchScreenButton" parent="MobileControls/BottomLeft"]
+position = Vector2(20, -20)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("7_3k50y")
 action = "turn_left"
 
-[node name="TurnRight" type="TouchScreenButton" parent="MobileControls" unique_id=1579486974]
-position = Vector2(200, 480)
+[node name="TurnRight" type="TouchScreenButton" parent="MobileControls/BottomLeft"]
+position = Vector2(170, -20)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("8_8hsjs")
 action = "turn_right"
 
-[node name="Brake" type="TouchScreenButton" parent="MobileControls" unique_id=991076445]
-position = Vector2(822.00006, 505)
+[node name="BottomRight" type="Control" parent="MobileControls"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -250.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Brake" type="TouchScreenButton" parent="MobileControls/BottomRight"]
+position = Vector2(20, 110)
 scale = Vector2(0.392, 0.28)
 texture_normal = ExtResource("15_ham_norm")
 texture_pressed = ExtResource("16_ham_pres")
 action = "brake"
 
-[node name="SpeedUp" type="TouchScreenButton" parent="MobileControls" unique_id=1606542875]
-position = Vector2(988.99994, 486.00003)
+[node name="SpeedUp" type="TouchScreenButton" parent="MobileControls/BottomRight"]
+position = Vector2(188, 91)
 scale = Vector2(0.366, 0.32)
 texture_normal = ExtResource("17_gaz_norm")
 texture_pressed = ExtResource("18_gaz_pres")
 action = "speed_up"
 
-[node name="Nitro" type="TouchScreenButton" parent="MobileControls" unique_id=1355182405]
-position = Vector2(950, 330)
+[node name="Nitro" type="TouchScreenButton" parent="MobileControls/BottomRight"]
+position = Vector2(150, -65)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("10_xo7ub")
 action = "nitro"
