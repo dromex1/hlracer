@@ -112,9 +112,19 @@ func _physics_process(delta: float) -> void:
 		wheel_rear.apply_torque_impulse(250)
 		wheel_front.apply_torque_impulse(250)
 	
+	# Fuel consumption
+	if not Globals.game_finished:
+		Globals.fuel -= delta * 1.5
+		if Globals.fuel <= 0.0:
+			Globals.fuel = 0.0
+			# Check if car has completely stopped (x velocity negligible)
+			if abs(linear_velocity.x) < 5.0 and abs(linear_velocity.y) < 5.0:
+				Globals.game_over.emit()
+	
 	if ENABLE_USER:
-		wheel_rear.apply_torque_impulse(_effective_torque * Input.get_action_strength(&"speed_up"))
-		wheel_front.apply_torque_impulse(_effective_torque * Input.get_action_strength(&"speed_up"))
+		if Globals.fuel > 0.0:
+			wheel_rear.apply_torque_impulse(_effective_torque * Input.get_action_strength(&"speed_up"))
+			wheel_front.apply_torque_impulse(_effective_torque * Input.get_action_strength(&"speed_up"))
 		wheel_rear.apply_torque_impulse(-_effective_torque * Input.get_action_strength(&"speed_down"))
 		wheel_front.apply_torque_impulse(-_effective_torque * Input.get_action_strength(&"speed_down"))
 		
@@ -164,6 +174,9 @@ func _on_area_items_area_entered(area: Area2D) -> void:
 		return
 	if area.get_meta(&"type") == "nitro":
 		Globals.nitro += 1.5
+		area.get_parent().queue_free()
+	if area.get_meta(&"type") == "fuel":
+		Globals.fuel = min(Globals.max_fuel, Globals.fuel + 15.0)
 		area.get_parent().queue_free()
 	if area.get_meta(&"type") == "coin":
 		Globals.score_coins += 50

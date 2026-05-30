@@ -43,6 +43,8 @@ signal level_completed()
 var game_finished := false
 var current_level_index := 0
 var _start_time_msec: int = 0
+var fuel := 100.0
+var max_fuel := 100.0
 
 var game_levels := [
 	{"name": "WIEŚ", "cost": 0, "sky": Color(0.5, 0.8, 1.0), "grass": Color(0.4, 0.8, 0.2), "dirt": Color(0.5, 0.3, 0.1)},
@@ -125,6 +127,8 @@ func new_game() -> void:
 	score_backflip = 0
 	score_medals = 0
 	nitro = 5.0 + (upgrade_levels["nitro"] * 0.5) # Bonus start capacity
+	max_fuel = 40.0 + (upgrade_levels["nitro"] * 10.0)
+	fuel = max_fuel
 	game_finished = false
 	_start_time_msec = Time.get_ticks_msec()
 	get_tree().change_scene_to_file("res://scenes/game.tscn")

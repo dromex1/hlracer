@@ -7,6 +7,7 @@ var _msg_backflip_score = null
 
 @onready var hud_main: MarginContainer = %HudMain
 @onready var progress_bar: TextureProgressBar = %ProgressBar
+@onready var fuel_bar: TextureProgressBar = %FuelBar
 @onready var score_label: Label = %ScoreLabel
 @onready var level_progress_bar: ProgressBar = %LevelProgressBar
 @onready var level_complete_label: Label = %LevelCompleteLabel
@@ -40,6 +41,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Update progress bar
 	level_progress_bar.value = clampf(Globals.score_distance, 0, Globals.LEVEL_FINISH_DISTANCE)
+	fuel_bar.max_value = Globals.max_fuel
+	fuel_bar.value = Globals.fuel
 
 
 func _apply_level_sky() -> void:

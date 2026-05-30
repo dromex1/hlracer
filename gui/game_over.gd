@@ -24,6 +24,7 @@ func _ready() -> void:
 	if Globals.game_finished:
 		game_over_label.text = "POZIOM UKOŃCZONY!\n(+5000 MONET)"
 		game_over_label.modulate = Color(1.0, 0.8, 0.2)
+		retry_button.text = "MENU"
 	
 	control_animate(game_over_label, 10, 0)
 	control_animate(distance_box, 3, 0.5)
@@ -79,9 +80,12 @@ func node2D_animate(node : Node2D, rot_max : float, interval : float) -> void:
 
 
 func _on_retry_button_pressed() -> void:
-	Globals.new_game()
-	get_tree().paused = false
-	queue_free()
+	if Globals.game_finished:
+		_on_exit_button_pressed()
+	else:
+		Globals.new_game()
+		get_tree().paused = false
+		queue_free()
 
 
 func _on_exit_button_pressed() -> void:

@@ -5,6 +5,7 @@ const SECTION_POINTS := 100
 const POINT_SIZE := 100.0
 const PLANE_FREQ := 7
 const NITRO := preload("res://items/nitrous.tscn")
+const FUEL_CAN := preload("res://items/fuel.tscn")
 const COIN := preload("res://items/coin.tscn")
 const MEDAL := preload("res://items/medal.tscn")
 
@@ -150,12 +151,18 @@ func _create_terrain_section(sec : int) -> void:
 			medal.position.y = get_position_y(medal.position.x + sec * SECTION_POINTS * POINT_SIZE) - 900
 			node_floor.add_child(medal)
 	
-	# Puntos de nitro
-	if generate_items and sec % 2:
-		var nitro = NITRO.instantiate()
-		nitro.position.x = 4890
-		nitro.position.y = get_position_y(4890 + sec * SECTION_POINTS * POINT_SIZE) - 900
-		node_floor.add_child(nitro)
+	# Puntos de nitro / fuel
+	if generate_items:
+		if sec % 3 == 0:
+			var fuel = FUEL_CAN.instantiate()
+			fuel.position.x = 4890
+			fuel.position.y = get_position_y(fuel.position.x + sec * SECTION_POINTS * POINT_SIZE) - 900
+			node_floor.add_child(fuel)
+		elif sec % 2 == 0:
+			var nitro = NITRO.instantiate()
+			nitro.position.x = 4890
+			nitro.position.y = get_position_y(nitro.position.x + sec * SECTION_POINTS * POINT_SIZE) - 900
+			node_floor.add_child(nitro)
 	
 	# Monedas
 	if generate_items:
