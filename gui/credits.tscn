@@ -1,0 +1,130 @@
+[gd_scene load_steps=6 format=3 uid="uid://crsba2elk6qyu"]
+
+[ext_resource type="Theme" uid="uid://iglcheijqvq" path="res://default_theme.tres" id="1_61us3"]
+[ext_resource type="Script" path="res://gui/credits.gd" id="2_0olgl"]
+[ext_resource type="FontFile" uid="uid://cl1f2i2ndrdvu" path="res://assets/fonts/OpenSans-Medium.ttf" id="2_x6v23"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pi2j"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.752941)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gymjf"]
+
+[node name="GuiCredits" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_61us3")
+script = ExtResource("2_0olgl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(570, 400)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1pi2j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_x6v23")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center][img=256]res://assets/title.svg[/img][/center]"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_x6v23")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]
+
+[font size=18]Stworzone przez:[/font]
+[font size=24][color=yellow]dromex[/color][/font]
+
+[/center]"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gymjf")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_x6v23")
+bbcode_enabled = true
+text = "[center][font size=14]Graphics:[/font]
+[font size=12][url]https://opengameart.org[/url]
+IcterusGames[/font][/center]"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_x6v23")
+bbcode_enabled = true
+text = "[center][font size=14]Music and FX:[/font]
+[font size=12][url]https://opengameart.org[/url][/font]
+[font size=12][url]https://freesound.org[/url][/font][/center]"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_x6v23")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center][font size=14]Dziękujemy za granie![/font]
+[font size=12]v 1.0.0[/font][/center]"
+fit_content = true
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "BACK"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="meta_clicked" from="VBoxContainer/PanelContainer/VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/RichTextLabel2" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/RichTextLabel2" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/PanelContainer/VBoxContainer/RichTextLabel2" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
